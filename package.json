@@ -1,0 +1,26 @@
+{
+  "name": "calculator",
+  "version": "0.1.0",
+  "description": "A simple calculator app made in React and Webpack.",
+  "private": true,
+  "scripts": {
+    "precommit": "lint-staged",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-scripts": "1.1.4",
+    "styled-components": "^3.4.6"
+  },
+  "devDependencies": {
+    "@types/react": "^16.4.7",
+    "eslint": "^5.2.0",
+    "eslint-plugin-react": "^7.10.0"
+  },
+  "author": "Asif Kabani, Faisal Narsi",
+  "license": "ISC"
+}

@@ -1,0 +1,58 @@
+.App {
+  margin: 0 auto;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  max-width: 340px;
+}
+
+.row {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+output {
+  font-size: 4.45rem;
+  margin: auto 1rem;
+}
+
+output.calculate {
+  float: right;
+}
+
+output.peek {
+  color: #8f8f8f73;
+  float: left;
+}
+
+img {
+  width: 75px;
+  padding: .25rem;
+  border-radius: 50px;
+  transition: all 0.5s ease;
+}
+
+img:hover {
+  background-color: #FFF;
+}
+
+img:active {
+  background-color: red
+}
+
+.zero {
+  width: 158px !important;
+}
+
+/* @media (max-width: 450px) {
+  .App {
+    border: none;
+  }
+} */
+
+/* @media (max-width: 700px) {
+  output {
+    padding-right: 1rem;
+  }
+} */
