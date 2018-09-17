@@ -1,22 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Output extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            output: 5,
-            peek: 4
-        };
-    }
-
-    render() {
-        return (
-            <React.Fragment>
-                <output className="peek">{this.state.peek}</output>
-                <output className="calculate">{this.state.output}</output>
-            </React.Fragment>
-        );
-    }
+// TODO: proptypes
+export default function Output(props) {
+    return (
+        <React.Fragment>
+            <output className="peek">{props.peek}</output>
+            <output className="calculate">{props.calculate}</output>
+        </React.Fragment>
+    );
 }
-
-export default Output;

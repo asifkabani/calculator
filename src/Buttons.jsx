@@ -20,48 +20,104 @@ import zero from '../src/img/0.svg';
 import decimal from '../src/img/decimal.svg';
 import equals from '../src/img/equals.svg';
 
+const addNum = (arr) => {
+    return arr.reduce((a, b) => {
+        return a + b;
+    });
+};
+
+
+const subtNum = (arr) => {
+    return arr.reduce((a, b) => {
+        return a - b;
+    });
+} 
+
+
+const multiNum = (arr) => {
+    return arr.reduce((a, b) => {
+        return a * b;
+    });
+}
+
+
+const divNum = (arr) => {
+    return arr.reduce((a, b) => {
+        return a / b;
+    });
+}
+
+
 class Buttons extends Component {
     constructor(props) {
         super(props);
-        this.state = {output: 0};
+        this.state = {
+            peek: 0,
+            calculate: 0,
+            memory: []
+        };
+
+        this.handleClick = this.handleClick.bind(this);
     }
 
-    
+    handleClick(e) {
+        if (e.target.className !== 'row') {
+            let buttonVal = e.target.getAttribute('alt');
+            if (this.state.calculate === 0) {
+                this.setState({
+                    calculate: buttonVal,
+                    memory: this.state.memory + buttonVal
+                });
+            } else {
+                this.setState({
+                    calculate: this.state.calculate + buttonVal,
+                    memory: this.state.memory + buttonVal
+                });
+            }
+            // else {
+            //     this.setState({
+            //         calculate: this.state.calculate += buttonVal
+            //     });
+            // }
+            console.log(this.state.calculate)
+            console.log(this.state.memory)
+        }
+    }
 
     render() {
         return (
             <React.Fragment>
                 <div className="row">
-                    <Output />
+                    <Output peek={this.state.peek} calculate={this.state.calculate} />
                 </div>
-                <div className="row">
-                    <img src={AC} alt="AC"/>
-                    <img src={plusMinus} alt=""/>
-                    <img src={percent} alt=""/>
-                    <img src={divide} alt=""/>
+                <div onClick={this.handleClick} className="row">
+                    <img src={AC} alt="AC" />
+                    <img src={plusMinus} alt="plusMinus" />
+                    <img src={percent} alt="%" />
+                    <img src={divide} alt="/" />
                 </div>
-                <div className="row">
-                    <img src={seven} alt=""/>
-                    <img src={eight} alt=""/>
-                    <img src={nine} alt=""/>
-                    <img src={multiply} alt=""/>
+                <div onClick={this.handleClick} className="row">
+                    <img src={seven} alt="7" />
+                    <img src={eight} alt="8" />
+                    <img src={nine} alt="9" />
+                    <img src={multiply} alt="*" />
                 </div>
-                <div className="row">
-                    <img src={four} alt=""/>
-                    <img src={five} alt=""/>
-                    <img src={six} alt=""/>
-                    <img src={subtract} alt=""/>
+                <div onClick={this.handleClick} className="row">
+                    <img src={four} alt="4" />
+                    <img src={five} alt="5" />
+                    <img src={six} alt="6" />
+                    <img src={subtract} alt="-" />
                 </div>
-                <div className="row">
-                    <img src={one} alt=""/>
-                    <img src={two} alt=""/>
-                    <img src={three} alt=""/>
-                    <img src={add} alt=""/>
+                <div onClick={this.handleClick} className="row">
+                    <img src={one} alt="1" />
+                    <img src={two} alt="2" />
+                    <img src={three} alt="3" />
+                    <img src={add} alt="+" />
                 </div>
-                <div className="row">
-                    <img src={zero} alt="" className='zero'/>
-                    <img src={decimal} alt=""/>
-                    <img src={equals} alt=""/>
+                <div onClick={this.handleClick} className="row">
+                    <img src={zero} alt="0" className='zero' />
+                    <img src={decimal} alt="." />
+                    <img src={equals} alt="=" />
                 </div>
             </React.Fragment>
         );
