@@ -31,21 +31,21 @@ const subtNum = (arr) => {
     return arr.reduce((a, b) => {
         return a - b;
     });
-} 
+}; 
 
 
 const multiNum = (arr) => {
     return arr.reduce((a, b) => {
         return a * b;
     });
-}
+};
 
 
 const divNum = (arr) => {
     return arr.reduce((a, b) => {
         return a / b;
     });
-}
+};
 
 
 class Buttons extends Component {
@@ -60,27 +60,24 @@ class Buttons extends Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
+    getVal(e) {
+        let buttonVal = e.target.getAttribute('alt');
+        if (this.state.calculate === 0) {
+            this.setState({
+                calculate: buttonVal,
+                memory: this.state.memory + buttonVal
+            });
+        } else {
+            this.setState({
+                calculate: this.state.calculate + buttonVal,
+                memory: this.state.memory + buttonVal
+            });
+        }
+    }
+
     handleClick(e) {
         if (e.target.className !== 'row') {
-            let buttonVal = e.target.getAttribute('alt');
-            if (this.state.calculate === 0) {
-                this.setState({
-                    calculate: buttonVal,
-                    memory: this.state.memory + buttonVal
-                });
-            } else {
-                this.setState({
-                    calculate: this.state.calculate + buttonVal,
-                    memory: this.state.memory + buttonVal
-                });
-            }
-            // else {
-            //     this.setState({
-            //         calculate: this.state.calculate += buttonVal
-            //     });
-            // }
-            console.log(this.state.calculate)
-            console.log(this.state.memory)
+            return this.getVal(e);
         }
     }
 

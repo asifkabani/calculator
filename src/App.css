@@ -1,3 +1,10 @@
+body {
+  margin: 0;
+  padding: 2rem;
+  font-family: sans-serif;
+  background-color: #000;
+}
+
 .App {
   margin: 0 auto;
   color: #fff;
@@ -13,8 +20,8 @@
 }
 
 output {
-  font-size: 4.45rem;
-  margin: auto 1rem;
+  font-size: 3rem;
+  margin: 1rem;
 }
 
 output.calculate {
