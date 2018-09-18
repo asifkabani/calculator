@@ -20,12 +20,6 @@ import zero from '../src/img/0.svg';
 import decimal from '../src/img/decimal.svg';
 import equals from '../src/img/equals.svg';
 
-const addNum = (arr) => {
-    return arr.reduce((a, b) => {
-        return a + b;
-    });
-};
-
 
 const subtNum = (arr) => {
     return arr.reduce((a, b) => {
@@ -60,24 +54,85 @@ class Buttons extends Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
-    getVal(e) {
-        let buttonVal = e.target.getAttribute('alt');
-        if (this.state.calculate === 0) {
-            this.setState({
-                calculate: buttonVal,
-                memory: this.state.memory + buttonVal
-            });
-        } else {
-            this.setState({
-                calculate: this.state.calculate + buttonVal,
-                memory: this.state.memory + buttonVal
-            });
+    // storeNum(str) {
+    //     if (str.match(/\d/)) {
+    //         let getNum = parseFloat(str);
+    //         if (!this.state.calculate) {
+    //             this.setState({
+    //                calculate: getNum,
+    //                memory: [...this.state.memory, getNum] 
+    //             });
+    //         } else {
+    //             this.setState({
+    //                 calculate: this.state.calculate + `${getNum}`,
+    //                 memory: [...this.state.memory, getNum]
+    //             });
+    //         }
+    //     } else if (str.match(/\+/)) {
+    //         return false;
+    //     }
+    // }
+
+    addNum(arr) {
+        return arr.reduce((a, b) => {
+            return a + b;
+        });
+    }
+
+    doOperation(val) {
+        switch (val) {
+            case '+':
+                console.log(val);
+                this.setState({
+                    peek: this.addNum([...this.state.memory]),
+                    calculate: this.state.calculate
+                });
+                break;
+            case '-':
+                console.log(`${val} is minus`);
+                break;
+            case '*':
+                console.log(`${val} is multiply`);
+                break;
+            case '/':
+                console.log(`${val} is divide`);
+                break;
+            case '%':
+                console.log(`${val} is percent`);
+                break;
+            case '=':
+                console.log(`${val} is equals`);
+                break;    
         }
     }
 
     handleClick(e) {
         if (e.target.className !== 'row') {
-            return this.getVal(e);
+            let getAlt = e.target.getAttribute('alt');
+            let matchDigit = /\d/;
+            let matchOperator = /^(\+|-|\*|\/|=|\||%|\^|\(|\))$/;
+            if (getAlt.match(matchDigit)) {
+                let getNum = parseFloat(getAlt);
+                if (!this.state.calculate) {
+                    this.setState({
+                        calculate: getNum,
+                        memory: [...this.state.memory, getNum]
+                    });
+                } else {
+                    this.setState({
+                        calculate: this.state.calculate + `${getNum}`,
+                        // When user clicks on a number (e.g. 3) and then another
+                        // (e.g. 4) should push an array into the memory array.
+                        // Meaning array inside of an array. So user can keep typing
+                        // numbers until they hit an operator (+, -, *, /, %, =),
+                        // from there what the next values will be will be a new        array. Then fix functions for add, sub, mult, etc. to do
+                        // the operation between two or more arrays.
+                        memory: [...this.state.memory, [getNum]]
+                    });
+                }
+            } else if (getAlt.match(matchOperator)) {
+                return this.doOperation(getAlt);   
+            }
         }
     }
 

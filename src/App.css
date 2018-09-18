@@ -45,7 +45,8 @@ img:hover {
 }
 
 img:active {
-  background-color: red
+  transition: 0s;
+  background-color: red;
 }
 
 .zero {
