@@ -11,6 +11,14 @@ body {
   display: flex;
   flex-direction: column;
   max-width: 340px;
+  border-radius: 15px;
+}
+
+@media (min-width: 500px) {
+  .App {
+    background-color: #1f1f1f;
+    padding: 1rem;
+  }
 }
 
 .row {
@@ -24,11 +32,11 @@ output {
   margin: 1rem;
 }
 
-output.calculate {
+output.right {
   float: right;
 }
 
-output.peek {
+output.left {
   color: #8f8f8f73;
   float: left;
 }
