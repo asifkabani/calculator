@@ -36,11 +36,6 @@ output.right {
   float: right;
 }
 
-output.left {
-  color: #8f8f8f73;
-  float: left;
-}
-
 img {
   width: 75px;
   padding: .25rem;
@@ -59,6 +54,10 @@ img:active {
 
 .zero {
   width: 158px !important;
+}
+
+.all-clear {
+  width: 240px !important;
 }
 
 /* @media (max-width: 450px) {

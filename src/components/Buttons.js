@@ -1,7 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import AC from '../img/AC.svg';
-import plusMinus from '../img/plus-minus.svg';
-import percent from '../img/percent.svg';
 import divide from '../img/divide.svg';
 import seven from '../img/7.svg';
 import eight from '../img/8.svg';
@@ -23,33 +21,31 @@ export default function Buttons(props) {
     return (
         <React.Fragment>
             <div onClick={props.trigger} className="row">
-                <img src={AC} alt="AC" />
-                <img src={plusMinus} alt="plusMinus" />
-                <img src={percent} alt="%" />
-                <img src={divide} alt="/" />
+                <img src={AC} alt="AC" data-action="AC" className="all-clear"  />
+                <img src={divide} alt="/"  data-action="/" />
             </div>
             <div onClick={props.trigger} className="row">
-                <img src={seven} alt="7" />
-                <img src={eight} alt="8" />
-                <img src={nine} alt="9" />
-                <img src={multiply} alt="*" />
+                <img src={seven} alt="7"  data-action="7" />
+                <img src={eight} alt="8"  data-action="8" />
+                <img src={nine} alt="9"  data-action="9" />
+                <img src={multiply} alt="*" data-action="*" />
             </div>
             <div onClick={props.trigger} className="row">
-                <img src={four} alt="4" />
-                <img src={five} alt="5" />
-                <img src={six} alt="6" />
-                <img src={subtract} alt="-" />
+                <img src={four} alt="4" data-action="4" />
+                <img src={five} alt="5" data-action="5" />
+                <img src={six} alt="6" data-action="6" />
+                <img src={subtract} alt="-" data-action="-" />
             </div>
             <div onClick={props.trigger} className="row">
-                <img src={one} alt="1" />
-                <img src={two} alt="2" />
-                <img src={three} alt="3" />
-                <img src={add} alt="+" />
+                <img src={one} alt="1" data-action="1" />
+                <img src={two} alt="2" data-action="2" />
+                <img src={three} alt="3" data-action="3" />
+                <img src={add} alt="+" data-action="+" />
             </div>
             <div onClick={props.trigger} className="row">
-                <img src={zero} alt="0" className='zero' />
-                <img src={decimal} alt="." />
-                <img src={equals} alt="=" />
+                <img src={zero} alt="0"  data-action="0" className="zero" />
+                <img src={decimal} alt="."  data-action="." />
+                <img src={equals} alt="="  data-action="=" />
             </div>
         </React.Fragment>
     );
