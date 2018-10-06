@@ -30,9 +30,6 @@ body {
 output {
   font-size: 3rem;
   margin: 1rem;
-}
-
-output.right {
   float: right;
 }
 

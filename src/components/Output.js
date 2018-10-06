@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Output(props) {
-    return (
-        <div className="row">
-            <output className="right">{props.calculate}</output>
-        </div>
-    );
+function Output({calculate}) {
+  return (
+    <div className="row">
+      <output>{calculate}</output>
+    </div>
+  );
 }
 
 export default Output;

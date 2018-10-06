@@ -18,37 +18,37 @@ import decimal from '../img/decimal.svg';
 import equals from '../img/equals.svg';
 
 export default function Buttons(props) {
-    return (
-        <React.Fragment>
-            <div onClick={props.trigger} className="row">
-                <img src={AC} alt="AC" data-action="AC" className="all-clear"  />
-                <img src={divide} alt="divide"  data-action="divide" />
-            </div>
-            <div onClick={props.trigger} className="row">
-                <img src={seven} alt="7"  data-action="7" />
-                <img src={eight} alt="8"  data-action="8" />
-                <img src={nine} alt="9"  data-action="9" />
-                <img src={multiply} alt="multiply" data-action="multiply" />
-            </div>
-            <div onClick={props.trigger} className="row">
-                <img src={four} alt="4" data-action="4" />
-                <img src={five} alt="5" data-action="5" />
-                <img src={six} alt="6" data-action="6" />
-                <img src={subtract} alt="subtract" data-action="subtract" />
-            </div>
-            <div onClick={props.trigger} className="row">
-                <img src={one} alt="1" data-action="1" />
-                <img src={two} alt="2" data-action="2" />
-                <img src={three} alt="3" data-action="3" />
-                <img src={add} alt="add" data-action="add" />
-            </div>
-            <div onClick={props.trigger} className="row">
-                <img src={zero} alt="0"  data-action="0" className="zero" />
-                <img src={decimal} alt="decimal"  data-action="decimal" />
-                <img src={equals} alt="calculate"  data-action="calculate" />
-            </div>
-        </React.Fragment>
-    );
+  return (
+    <React.Fragment>
+      <div onClick={props.trigger} className="row">
+        <img src={AC} alt="AC" data-action="AC" className="all-clear" />
+        <img src={divide} alt="divide" data-action="divide" />
+      </div>
+      <div onClick={props.trigger} className="row">
+        <img src={seven} alt="7" data-action="7" />
+        <img src={eight} alt="8" data-action="8" />
+        <img src={nine} alt="9" data-action="9" />
+        <img src={multiply} alt="multiply" data-action="multiply" />
+      </div>
+      <div onClick={props.trigger} className="row">
+        <img src={four} alt="4" data-action="4" />
+        <img src={five} alt="5" data-action="5" />
+        <img src={six} alt="6" data-action="6" />
+        <img src={subtract} alt="subtract" data-action="subtract" />
+      </div>
+      <div onClick={props.trigger} className="row">
+        <img src={one} alt="1" data-action="1" />
+        <img src={two} alt="2" data-action="2" />
+        <img src={three} alt="3" data-action="3" />
+        <img src={add} alt="add" data-action="add" />
+      </div>
+      <div onClick={props.trigger} className="row">
+        <img src={zero} alt="0" data-action="0" className="zero" />
+        <img src={decimal} alt="decimal" data-action="decimal" />
+        <img src={equals} alt="calculate" data-action="calculate" />
+      </div>
+    </React.Fragment>
+  );
 }
 
 
@@ -56,7 +56,7 @@ export default function Buttons(props) {
 //     return arr.reduce((a, b) => {
 //         return a - b;
 //     });
-// }; 
+// }
 
 
 // const multiNum = (arr) => {
