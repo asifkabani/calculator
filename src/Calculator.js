@@ -4,7 +4,7 @@ import Output from './components/Output';
 import Buttons from './components/Buttons';
 
 const isDigit = /\d/;
-// const isOperator = /^(\+|-|\*|\/|=|%)$/;
+const isOperator = /^(\+|-|\*|\/|=|%)$/;
 // const plusMinus = 'plusMinus';
 // const AC = 'AC';
 const convertToNum = (n) => parseFloat(n);
@@ -25,6 +25,10 @@ class App extends React.Component {
   //   });
   // }
 
+  doOperation(e) {
+    console.log(e)
+  }
+
   showNum(n) {
     let number = convertToNum(n);
     if (this.state.current !== 0) {
@@ -39,10 +43,21 @@ class App extends React.Component {
   }
 
   findClicker(e) {
-    let target = e.target.getAttribute('data-action');
-    if (target.match(isDigit)) {
-      this.showNum(target);
-    }
+    let key = e.target;
+    console.log(key)
+    let action = key.dataset.action;
+    console.log(action)
+    console.log(typeof action)
+    console.log(action === isDigit)
+    // if (key.match(isDigit)) {
+    //   this.showNum(key);
+    // }
+    // if (target.match(isDigit)) {
+    //   this.showNum(target);
+    // }
+    // else if (target.match(isOperator)) {
+    //   this.doOperation(target);
+    // }
     // } else if (target.match(isOperator)) {
     //   this.addOperator(target);
     // } else if (target.match(AC)) {
