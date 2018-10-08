@@ -13,20 +13,36 @@ class App extends React.Component {
     super(props);
     this.state = {
       current: 0,
+      next: 0,
+      result: 0,
     };
     this.handleClick = this.handleClick.bind(this);
   }
 
-  doOperation() {
+  // doOperation(key) {
+  //   const { current, next } = this.state;
+  //   if (current || next === 0) {
+  //     return false;
+  //   }
+  //   return this.doArithmetic(key);
+  // }
 
-  }
-
-  doFunction(key) {
-    if (!key === 'AC') {
-      this.doOperation();
-    } else {
-      this.setState({ current: 0 });
+  getOperator(key) {
+    const { current } = this.state;
+    switch (key) {
+      case 'AC':
+        this.setState({ current: 0, result: 0 });
+        break;
+      case 'add':
+        this.setState({ current: current + `+` });
+        break;
+      default:
     }
+    // if (key === 'AC') {
+    //   this.setState({ current: 0 });
+    // } else {
+    //   return this.doOperation(key);
+    // }
   }
 
   numOperation(key) {
@@ -42,7 +58,7 @@ class App extends React.Component {
   findClicker(e) {
     const key = e.target.dataset.action;
     if (isNaN(key)) {
-      this.doFunction(key);
+      this.getOperator(key);
     } else {
       this.numOperation(key);
     }
